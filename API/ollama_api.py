@@ -1,13 +1,19 @@
-from ollama import chat
+from ollama import Client
 from ollama import ChatResponse
-from ollama import generate
+from dotenv import load_dotenv
 
 import os
 import API.api_controller
 import json
 
+load_dotenv()
+
 ollama_model = os.environ.get("ZW_OLLAMA_MODEL")
 ollama_model_visual = os.environ.get("ZW_OLLAMA_MODEL_VISUAL")
+
+# Connect to a remote Ollama server if one is set, otherwise the local default
+ollama_client = Client(host=os.environ.get("ZW_OLLAMA_HOST") or None)
+chat = ollama_client.chat
 
 # Load our configs for our different temperatures
 with open("Configurables/OllamaModelConfigs.json", 'r') as openfile:
