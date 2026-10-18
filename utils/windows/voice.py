@@ -1,7 +1,6 @@
 import time
 import os
 
-from sympy import false
 
 assert os.name == 'nt' # type: ignore
 

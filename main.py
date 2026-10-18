@@ -7,7 +7,6 @@ import humanize, os, threading
 import emoji
 import asyncio
 
-from numba.core.cgutils import false_bit
 
 import utils.audio
 import utils.hotkeys
